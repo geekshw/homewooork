@@ -30,20 +30,20 @@
 <body class="hidden hidden-ball smooth-scroll rounded-borders" data-primary-color="#8c6144">
 
 	
-	<main>		
+	<main>
         <!-- Preloader -->
         <div class="preloader-wrap" data-centerLine="Loading">
             <div class="outer">
                 <div class="inner">                    
                     <div class="trackbar">
                     	<div class="preloader-intro">
-                        	<span>Loading</span>
+                        	<span>Загрузка</span>
                         </div>
                         <div class="loadbar"></div>
                         <div class="percentage-wrapper"><div class="percentage" id="precent"></div></div>
                     </div>
                     
-                    <div class="percentage-intro">Please wait, content is loading</div>                     
+                    <div class="percentage-intro">Пожалуйста, подождите, идет загрузка контента</div>                     
                 </div>
             </div>
         </div>
@@ -60,12 +60,14 @@
                 
                 
                 <!-- Logo -->
+                {% for x in main %}
                 <div id="logo" class="hide-ball">
-                    <a class="ajax-link" data-type="page-transition" href="index.html">
-                        <img class="black-logo" src="{{main.logo.url}}" alt="ClaPat Logo">
-                        <img class="white-logo" src="{{main.logo.url}}" alt="ClaPat Logo">
+                    <a class="ajax-link" data-type="переход страницы" href="{% url 'main' %}">
+                        <img class="black-logo" src="{{x.logo.url}}" alt="ClaPat Logo">
+                        <img class="white-logo" src="{{x.logo.url}}" alt="ClaPat Logo">
                     </a>
                 </div>
+                {% endfor %}    
                 <!--/Logo -->
                             
                 
@@ -75,25 +77,25 @@
                         <div class="outer">
                             <div class="inner">           
                                 <ul data-breakpoint="10025" class="flexnav">
-                                    <li class="link menu-timeline"><a class="" href="#"><div class="before-span"><span data-hover="Portfolio">Portfolio</span></div></a>
+                                    <li class="link menu-timeline"><a class="" href="#"><div class="before-span"><span data-hover="Портфолио">Портфолио</span></div></a>
                                         <ul>
-                                            <li><a class="ajax-link active" href="index.html" data-type="page-transition">Overlapping Gallery</a></li>
-                                            <li><a class="ajax-link" href="index-showcase-grid.html" data-type="page-transition">Portfolio Grid</a></li>
-                                            <li><a class="ajax-link" href="index-showcase-gallery.html" data-type="page-transition">Archive Gallery</a></li> 
+                                            <li><a class="ajax-link active" href="{% url 'main' %}" data-type="переход страницы">Перекрывающаяся галерея</a></li>
+                                            <li><a class="ajax-link" href="index-showcase-grid.html" data-type="переход страницы">Сетка портфолио</a></li>
+                                            <li><a class="ajax-link" href="index-showcase-gallery.html" data-type="переход страницы">Архивная галерея</a></li> 
                                         </ul>
                                     </li>
-                                    <li class="link menu-timeline"><a class="ajax-link" data-type="page-transition" href="about.html"><div class="before-span"><span data-hover="About">About</span></div></a></li>
-                                    <li class="link menu-timeline"><a class="ajax-link" data-type="page-transition" href="contact.html"><div class="before-span"><span data-hover="Contact">Contact</span></div></a></li>
-                                    <li class="link menu-timeline"><a class="" href="#"><div class="before-span"><span data-hover="More">More</span></div></a>
+                                    <li class="link menu-timeline"><a class="ajax-link" data-type="переход страницы" href="{% url 'about' %}"><div class="before-span"><span data-hover="About">About</span></div></a></li>
+                                    <li class="link menu-timeline"><a class="ajax-link" data-type="переход страницы" href="{% url 'contact' %}"><div class="before-span"><span data-hover="Контакт">Контакт</span></div></a></li>
+                                    <li class="link menu-timeline"><a class="" href="#"><div class="before-span"><span data-hover="Более">Более</span></div></a>
                                         <ul>
-                                            <li><a class="ajax-link" href="typography.html" data-type="page-transition">Typography</a></li>                                         
-                                            <li><a class="ajax-link" href="multimedia.html" data-type="page-transition">Multimedia</a></li>
-                                            <li><a class="ajax-link" href="shortcodes.html" data-type="page-transition">Shortcodes</a></li>
+                                            <li><a class="ajax-link" href="typography.html" data-type="переход страницы">Типография</a></li>                                         
+                                            <li><a class="ajax-link" href="multimedia.html" data-type="переход страницы">Мультимедиа</a></li>
+                                            <li><a class="ajax-link" href="shortcodes.html" data-type="переход страницы">Короткие коды</a></li>
                                         </ul>
                                     </li>
                                     <li class="link menu-timeline">
                                         <a class="buy-template" href="https://themeforest.net/item/montoya-creative-portfolio-template/50511291" target="_blank">
-                                            <div class="before-span"><span data-hover="Get Montoya Website">Get Montoya Website</span></div>
+                                            <div class="before-span"><span data-hover="Получить сайт Монтойи">Получить сайт Монтойи</span></div>
                                         </a>
                                     </li>
                                 </ul>            
@@ -117,7 +119,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="button-text sticky right"><span data-hover="Menu">Menu</span></div> 
+                    <div class="button-text sticky right"><span data-hover="Меню">Меню</span></div> 
                 </div>
                 <!--/Menu Burger -->
             
@@ -138,12 +140,15 @@
                     <div id="hero">
                         <div id="hero-styles">
                             <div id="hero-caption" class="content-full-width parallax-scroll-caption text-align-center height-title">
-                                <div class="inner">                                    
-                                    <h1 class="hero-title caption-timeline primary-font-title"><span>{{main.title}}</span></h1>
+                                {% for x in main %}
+                                <div class="inner"> 
+                                                                       
+                                    <h1 class="hero-title caption-timeline primary-font-title"><span>{{x.title}}</span></h1>
                                     <div class="hero-subtitle caption-timeline">
-                                    	<span>{{main.description}}</span>
+                                    	<span>{{x.description}}</span>
                                     </div>                                   
                                 </div>
+                                {% endfor %} 
                             </div>
                             <div id="hero-footer">
                             	<div class="hero-footer-left">
@@ -153,11 +158,11 @@
                                                 <i class="fa-solid fa-angle-down"></i>
                                             </div>
                                         </div>
-                                        <div class="button-text sticky right"><span data-hover="Scroll to Explore">Scroll to Explore</span></div> 
+                                        <div class="button-text sticky right"><span data-hover="Прокрутите, чтобы исследовать">Прокрутите, чтобы исследовать</span></div> 
                                     </div>
                                 </div>
                                 <div class="hero-footer-right">
-                    				<div id="info-text">Featured Projects</div>
+                    				<div id="info-text">Рекомендуемые проекты</div>
                                 </div>
                             </div>                                  
                         </div>
@@ -179,60 +184,60 @@
                                         <div class="overlapping-gallery">
                                         
                                             <div class="overlapping-image">
-                                                <div class="overlapping-image-inner trigger-item" data-centerLine="OPEN">                                                    
+                                                <div class="overlapping-image-inner trigger-item" data-centerLine="ОТКРЫТЬ">                                                    
                                                     <div class="img-mask">
-                                                        <a class="slide-link" data-type="page-transition" href="project01.html"></a>
+                                                        <a class="slide-link" data-type="переход страницы" href="project01.html"></a>
                                                         <div class="section-image trigger-item-link">
                                                             <img src="{% static 'images/01hero.jpg' %}" class="item-image grid__item-img" alt="">
                                                         </div>                                                
                                                         <img src="{% static 'images/01hero.jpg' %}" class="grid__item-img grid__item-img--large" alt="">                              
                                                     </div>
                                                     <div class="slide-caption trigger-item-link-secondary">
-                                                        <div class="slide-title primary-font-title"><span>White Liners</span></div>
+                                                        <div class="slide-title primary-font-title"><span>Белые вкладыши</span></div>
                                                         <div class="slide-date"><span>2024</span></div>
-                                                        <div class="slide-cat"><span>Photography</span></div>                                           
+                                                        <div class="slide-cat"><span>Фото</span></div>                                           
                                                     </div>
                                                 </div>
                                             </div>
                                             
                                             <div class="overlapping-image">
-                                                <div class="overlapping-image-inner trigger-item" data-centerLine="OPEN">                                                    
+                                                <div class="overlapping-image-inner trigger-item" data-centerLine="ОТКРЫТЬ">                                                    
                                                     <div class="img-mask">
-                                                        <a class="slide-link" data-type="page-transition" href="project02.html"></a>
+                                                        <a class="slide-link" data-type="переход страницы" href="project02.html"></a>
                                                         <div class="section-image trigger-item-link">
                                                             <img src="{% static 'images/02hero.jpg' %}" class="item-image grid__item-img" alt="">
                                                         </div>                                                
                                                         <img src="{% static 'images/02hero.jpg' %}" class="grid__item-img grid__item-img--large" alt="">                              
                                                     </div>
                                                     <div class="slide-caption trigger-item-link-secondary">
-                                                        <div class="slide-title primary-font-title"><span>Green Audio</span></div>                                                    
+                                                        <div class="slide-title primary-font-title"><span>Зеленый Аудио</span></div>                                                    
                                                         <div class="slide-date"><span>2024</span></div>
-                                                        <div class="slide-cat"><span>Photography</span></div>                                      
+                                                        <div class="slide-cat"><span>Фото</span></div>                                      
                                                     </div>
                                                 </div>
                                             </div>
                                             
                                             <div class="overlapping-image">
-                                                <div class="overlapping-image-inner trigger-item" data-centerLine="OPEN">                                                    
+                                                <div class="overlapping-image-inner trigger-item" data-centerLine="ОТКРЫТЬ">                                                    
                                                     <div class="img-mask">
-                                                        <a class="slide-link" data-type="page-transition" href="project03.html"></a>
+                                                        <a class="slide-link" data-type="переход страницы" href="project03.html"></a>
                                                         <div class="section-image trigger-item-link">
                                                             <img src="{% static 'images/03hero.jpg' %}" class="item-image grid__item-img" alt="">
                                                         </div>                                                
                                                         <img src="{% static 'images/03hero.jpg' %}" class="grid__item-img grid__item-img--large" alt="">                              
                                                     </div>
                                                     <div class="slide-caption trigger-item-link-secondary">
-                                                        <div class="slide-title primary-font-title"><span>Nanotech</span></div>                                                    
+                                                        <div class="slide-title primary-font-title"><span>Нанотех</span></div>                                                    
                                                         <div class="slide-date"><span>2024</span></div>
-                                                        <div class="slide-cat"><span>Branding</span></div>                                           
+                                                        <div class="slide-cat"><span>Брендинг</span></div>                                           
                                                     </div>
                                                 </div>
                                             </div>
                                             
                                             <div class="overlapping-image">
-                                                <div class="overlapping-image-inner trigger-item change-header" data-centerLine="OPEN">                                                    
+                                                <div class="overlapping-image-inner trigger-item change-header" data-centerLine="ОТКРЫТЬ">                                                    
                                                     <div class="img-mask">
-                                                        <a class="slide-link" data-type="page-transition" href="project04.html"></a>
+                                                        <a class="slide-link" data-type="переход страницы" href="project04.html"></a>
                                                         <div class="section-image trigger-item-link">
                                                             <img src="{% static 'images/04hero.jpg' %}" class="item-image grid__item-img" alt="">
                                                             <div class="hero-video-wrapper">
@@ -244,26 +249,26 @@
                                                         <img src="{% static 'images/04hero.jpg' %}" class="grid__item-img grid__item-img--large" alt="">                              
                                                     </div>
                                                     <div class="slide-caption trigger-item-link-secondary">
-                                                        <div class="slide-title primary-font-title"><span>Cool Dude</span></div>
+                                                        <div class="slide-title primary-font-title"><span>Крутой чувак</span></div>
                                                         <div class="slide-date"><span>2024</span></div>
-                                                        <div class="slide-cat"><span>Video Production</span></div>                                         
+                                                        <div class="slide-cat"><span>Видеопроизводство</span></div>                                         
                                                     </div>
                                                 </div>
                                             </div>
                                             
                                             <div class="overlapping-image">
-                                                <div class="overlapping-image-inner trigger-item" data-centerLine="OPEN">                                                    
+                                                <div class="overlapping-image-inner trigger-item" data-centerLine="ОТКРЫТЬ">                                                    
                                                     <div class="img-mask">
-                                                        <a class="slide-link" data-type="page-transition" href="project05.html"></a>
+                                                        <a class="slide-link" data-type="переход страницы" href="project05.html"></a>
                                                         <div class="section-image trigger-item-link">
                                                             <img src="{% static 'images/05hero.jpg' %}" class="item-image grid__item-img" alt="">
                                                         </div>                                                
                                                         <img src="{% static 'images/05hero.jpg' %}" class="grid__item-img grid__item-img--large" alt="">                              
                                                     </div>
                                                     <div class="slide-caption trigger-item-link-secondary">
-                                                        <div class="slide-title primary-font-title"><span>Sphere Digital</span></div>                                                    
+                                                        <div class="slide-title primary-font-title"><span>Цифровой</span></div>                                                    
                                                         <div class="slide-date"><span>2024</span></div>
-                                                        <div class="slide-cat"><span>Graphic Design</span></div>                                           
+                                                        <div class="slide-cat"><span>Графический дизайн</span></div>                                           
                                                     </div>
                                                 </div>
                                             </div>
@@ -276,17 +281,17 @@
                                 <hr>
                                 
                                 <p>
-                                    <span class="has-opacity">CRAFTING WEBSITES WHERE THE ELEGANCE</span>
+                                    <span class="has-opacity">СОЗДАНИЕ САЙТОВ, ГДЕ ЭЛЕГАНТНОСТЬ</span>
                                     <br class="destroy">
-                                    <span class="has-opacity">OF DESIGN INTERSECTS WITH THE SCIENCE OF SELLING PRODUCTS.</span>
+                                    <span class="has-opacity">ДИЗАЙНА ПЕРЕСЕКАЕТСЯ С НАУКОЙ ПРОДАЖИ ПРОДУКЦИИ.</span>
                                 </p>
                                                               
                                 <div class="button-box text-align-center has-animation fadeout-element">             
                                     <div class="clapat-button-wrap parallax-wrap hide-ball">
                                         <div class="clapat-button parallax-element">
                                             <div class="button-border outline rounded parallax-element-second">
-                                                <a class="ajax-link" href="index-showcase-grid.html" data-type="page-transition">
-                                                    <span data-hover="See All Works">See All Works</span>
+                                                <a class="ajax-link" href="index-showcase-grid.html" data-type="переход страницы">
+                                                    <span data-hover="Посмотреть все работы">Посмотреть все работы</span>
                                                  </a>
                                              </div>
                                         </div>
@@ -302,7 +307,7 @@
                             <div class="content-row full row_padding_left row_padding_right dark-section fadeout-element" data-bgcolor="#0c0c0c">
                             
                                 <div class="list-rotator-wrapper">                                
-                                	<div class="list-rotator-title">OUR SKILLS COVER</div>                  
+                                	<div class="list-rotator-title">НАШИ НАВЫКИ ОХВАТЫВАЮТ</div>                  
                                     <div class="list-rotator-pin">                                    
                                         <ul class="list-rotator primary-font-title">
                                             <li class="">Web Design</li>
@@ -331,7 +336,7 @@
                                         </div>
                                     	<div class="box-icon-content">
                                             <h6 class="no-margins"><a href="mailto:office@montoya.com" class="link"><span>office@montoya.com</span></a></h6>
-                                            <p>Email</p>
+                                            <p>Электронная почта</p>
                                         </div>
                                     </div> 
                                                            
@@ -345,7 +350,7 @@
                                         </div>
                                     	<div class="box-icon-content">
                                             <h6 class="no-margins">35 M Str, New York, USA</h6>
-                                            <p>Address</p>
+                                            <p>Адрес</p>
                                         </div>
                                     </div>
                                                             
@@ -359,7 +364,7 @@
                                         </div>
                                     	<div class="box-icon-content">
                                             <h6 class="no-margins">0040 (7763) 574-8901</h6>
-                                            <p>Phone</p>
+                                            <p>Телефон</p>
                                         </div>
                                     </div>
                                     
@@ -380,9 +385,9 @@
                             <div class="page-nav-wrap">
                                 <div class="page-nav-caption content-full-width text-align-center height-title">                                 
                                     <div class="inner">
-                                    	<div class="next-hero-subtitle caption-timeline"><span>EXPLORING OUR WORLD OF VISUAL AND INTERACTIVE DESIGN</span></div>
-                                        <a class="page-title next-ajax-link-page" data-type="page-transition" data-centerline="ABOUT US" href="about.html">
-                                            <div class="next-hero-title primary-font-title caption-timeline"><span>Our Studio</span></div>
+                                    	<div class="next-hero-subtitle caption-timeline"><span>ИССЛЕДУЕМ НАШ МИР ВИЗУАЛЬНОГО И ИНТЕРАКТИВНОГО ДИЗАЙНА</span></div>
+                                        <a class="page-title next-ajax-link-page" data-type="переход страницы" data-centerline="О нас" href="{% url 'about' %}">
+                                            <div class="next-hero-title primary-font-title caption-timeline"><span>студия</span></div>
                                         </a>                                        
                                     </div>               
                                 </div>
@@ -407,16 +412,16 @@
                                     <i class="fa-solid fa-angle-up"></i>
                                 </div>
                             </div>
-                            <div class="button-text sticky left"><span data-hover="Back Top">Back Top</span></div> 
+                            <div class="button-text sticky left"><span data-hover="Назад Верх">Назад Верх</span></div> 
                         </div>
                         
                         <div class="footer-middle">
-                            <div class="copyright">2024 © <a class="link" target="_blank" href="https://www.clapat.com/">ClaPat</a>. All rights reserved.</div>
+                            <div class="copyright">2024 © <a class="link" target="_blank" href="https://www.clapat.com/">ClaPat</a>. Все права защищены.</div>
                         </div>
                         
                         <div class="socials-wrap">            	
                             <div class="socials-icon"><i class="fa-solid fa-share-nodes"></i></div>
-                            <div class="socials-text">Follow Us</div>
+                            <div class="socials-text">Подписывайтесь на нас</div>
                             <ul class="socials">
                                 <li><span class="parallax-wrap"><a class="parallax-element" href="https://www.dribbble.com/clapat" target="_blank">Db</a></span></li>
                                 <li><span class="parallax-wrap"><a class="parallax-element" href="https://www.twitter.com/clapatdesign" target="_blank">Tw</a></span></li>
@@ -439,6 +444,7 @@
             
             
 		</div>    
+        
         <!--/Page Content -->
     
 		</div>
@@ -484,4 +490,3 @@
 </body>
 
 </html>
-'/{% static 'images/04hero.mp4' %}'
